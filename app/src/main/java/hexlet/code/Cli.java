@@ -10,9 +10,6 @@ public class Cli {
             userName = scanner.next();
         }
         System.out.printf("Hello, %s!\n", userName);
-        if (App.gameNumber == 1) {
-            App.chooseMenu();
-        }
     }
     public static String getUserName() {
         return userName;

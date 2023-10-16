@@ -26,7 +26,7 @@ public class Even {
                             """;
                 System.out.printf(schema, answer, rightAnswer, Cli.getUserName());
                 App.winsCount = 0;
-                App.chooseMenu();
+                return;
             }
         }
         System.out.printf("Congratulations, %s!\n", Cli.getUserName());
