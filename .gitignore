@@ -1,4 +1,4 @@
-app/.gitignore
+
 	app/.idea/
 	app/build.gradle
 	app/config/
