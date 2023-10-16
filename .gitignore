@@ -1,0 +1,8 @@
+app/.gitignore
+	app/.idea/
+	app/build.gradle
+	app/config/
+	app/gradle/
+	app/gradlew
+	app/gradlew.bat
+	app/settings.gradle
