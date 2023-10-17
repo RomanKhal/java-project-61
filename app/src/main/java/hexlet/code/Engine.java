@@ -13,6 +13,7 @@ public class Engine {
                     1 - Greet
                     2 - Even
                     3 - Calc
+                    4 - GCD
                     0 - Exit
                     Your choice:\s""");
             try {
@@ -31,6 +32,8 @@ public class Engine {
                 case 3:
                     Calc.calcGame();
                     break;
+                case 4:
+                    GCD.gcdGame();
                 case 0:
                     System.out.printf("Bye %s!\n", Cli.getUserName());
                     break;

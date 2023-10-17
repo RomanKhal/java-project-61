@@ -1,5 +1,6 @@
 package hexlet.code;
 
+
 public abstract class Game {
     static String schema = """
                         %s is wrong answer ;(. Correct answer was %s.
