@@ -14,6 +14,7 @@ public class Engine {
                     2 - Even
                     3 - Calc
                     4 - GCD
+                    5 - Progression
                     0 - Exit
                     Your choice:\s""");
             try {
@@ -34,6 +35,10 @@ public class Engine {
                     break;
                 case 4:
                     GCD.gcdGame();
+                    break;
+                case 5:
+                    Progression.progressionGame();
+                    break;
                 case 0:
                     System.out.printf("Bye %s!\n", Cli.getUserName());
                     break;
