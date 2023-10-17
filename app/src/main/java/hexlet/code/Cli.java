@@ -2,9 +2,9 @@ package hexlet.code;
 
 import java.util.Scanner;
 public class Cli {
-    private static String userName;
+    private static String userName = "Stranger";
     public static void setUserName() {
-        if (userName == null) {
+        if (userName.equals("Stranger")) {
             System.out.print("May I Have Your Name? ");
             Scanner scanner = new Scanner(System.in);
             userName = scanner.next();
