@@ -37,19 +37,12 @@ public class Calc extends Game {
     }
 
     static int calcRightAnswer(int num) {
-        int result = 0;
-        switch (num) {
-            case 0:
-                result = currentNumber1 + currentNumber2;
-                break;
-            case 1:
-                result = currentNumber1 - currentNumber2;
-                break;
-            case 2:
-                result = currentNumber1 * currentNumber2;
-                break;
-        }
-        return result;
+        return switch (num) {
+            case 0 -> currentNumber1 + currentNumber2;
+            case 1 -> currentNumber1 - currentNumber2;
+            case 2 -> currentNumber1 * currentNumber2;
+            default -> 0;
+        };
     }
 }
 
