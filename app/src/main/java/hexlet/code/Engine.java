@@ -20,7 +20,7 @@ public class Engine {
                     Your choice:\s""");
             try {
                 gameNumber = scanner.nextInt();
-                if (gameNumber != 0) {
+                if (gameNumber != 0 && gameNumber != 1) {
                     Cli.setUserName();
                 }
             } catch (Exception e) {
@@ -28,6 +28,9 @@ public class Engine {
                 chooseMenu();
             }
             switch (gameNumber) {
+                case 1:
+                    Cli.setUserName();
+                    break;
                 case 2:
                     Even.evenGame();
                     break;
