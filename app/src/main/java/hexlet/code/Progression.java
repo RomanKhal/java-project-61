@@ -9,29 +9,29 @@ public class Progression extends Game {
             int[] progression = generateProgression();
             int index = randomize(progression.length);
             int rightAnswer = progression[index];
-            System.out.printf(questionAndAnswer,strArrForPrint(progression, index));
+            System.out.printf(questionAndAnswer, strArrForPrint(progression, index));
             int answer = scanner.nextInt();
             if (answer == rightAnswer) {
                 correctAnswer();
             } else {
-                wrongAnswer(answer,rightAnswer);
+                wrongAnswer(answer, rightAnswer);
                 return;
             }
         }
         congratsYouWin();
     }
 
-     static int[] generateProgression() {
-        int [] arr = new int[10];
+    static int[] generateProgression() {
+        int[] arr = new int[10];
         int step = randomize(9) + 1;
         arr[0] = randomize(9) + 1;
         for (int i = 1; i < arr.length; i++) {
-            arr[i] = arr[i-1] + step;
+            arr[i] = arr[i - 1] + step;
         }
         return arr;
     }
 
-     static String strArrForPrint(int[] arr, int index) {
+    static String strArrForPrint(int[] arr, int index) {
         StringBuilder result = new StringBuilder();
         for (int i = 0; i < arr.length; i++) {
             if (i == index) {

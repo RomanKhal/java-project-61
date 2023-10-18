@@ -19,9 +19,9 @@ public class Prime extends Game {
         congratsYouWin();
     }
 
-    private static String gettingRightAnswer(int currentNumber) {
-        for (int i = 2; i <= Math.sqrt(currentNumber); i++) {
-            if (currentNumber % i == 0) {
+    private static String gettingRightAnswer(int number) {
+        for (int i = 2; i <= Math.sqrt(number); i++) {
+            if (number % i == 0) {
                 return "no";
             }
         }
