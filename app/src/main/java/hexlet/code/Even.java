@@ -1,15 +1,12 @@
 package hexlet.code;
 
-import java.util.Scanner;
 
 public class Even extends Game {
 
     static void evenGame() {
-        Cli.setUserName();
-        Scanner scanner = new Scanner(System.in);
         System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
         while (Engine.winsCount < 3) {
-            int currentNumber = Engine.randomize(1000);
+            int currentNumber = randomize(1000);
             String rightAnswer = currentNumber % 2 == 0 ? "yes" : "no";
             System.out.printf(questionAndAnswer, currentNumber);
             String answer = scanner.next();
@@ -20,6 +17,6 @@ public class Even extends Game {
                 return;
             }
         }
-        congrats();
+        congratsYouWin();
     }
 }

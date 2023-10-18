@@ -1,6 +1,5 @@
 package hexlet.code;
 
-import java.util.Scanner;
 
 public class Calc extends Game {
 
@@ -10,8 +9,6 @@ public class Calc extends Game {
     static int rightAnswer;
 
     static void calcGame() {
-        Cli.setUserName();
-        Scanner scanner = new Scanner(System.in);
         System.out.println("What is the result of the expression?");
         while (Engine.winsCount < 3) {
             System.out.printf(questionAndAnswer, generateQuestion());
@@ -23,14 +20,14 @@ public class Calc extends Game {
                 return;
             }
         }
-        congrats();
+        congratsYouWin();
     }
 
     static String generateQuestion() {
         StringBuilder expr = new StringBuilder();
-        currentNumber1 = Engine.randomize(99);
-        currentNumber2 = Engine.randomize(99);
-        int operatorChoose = Engine.randomize(3);
+        currentNumber1 = randomize(99);
+        currentNumber2 = randomize(99);
+        int operatorChoose = randomize(3);
         rightAnswer = calcRightAnswer(operatorChoose);
         expr.append(currentNumber1).append(operators[operatorChoose]).append(currentNumber2);
         return expr.toString();

@@ -15,18 +15,19 @@ public class Engine {
                     3 - Calc
                     4 - GCD
                     5 - Progression
+                    6 - Prime
                     0 - Exit
                     Your choice:\s""");
             try {
                 gameNumber = scanner.nextInt();
+                if (gameNumber != 0) {
+                    Cli.setUserName();
+                }
             } catch (Exception e) {
                 System.out.println("Choose a number please.");
                 chooseMenu();
             }
             switch (gameNumber) {
-                case 1:
-                    Cli.setUserName();
-                    break;
                 case 2:
                     Even.evenGame();
                     break;
@@ -39,6 +40,9 @@ public class Engine {
                 case 5:
                     Progression.progressionGame();
                     break;
+                case 6:
+                    Prime.primeGame();
+                    break;
                 case 0:
                     System.out.printf("Bye %s!\n", Cli.getUserName());
                     break;
@@ -46,9 +50,5 @@ public class Engine {
                     System.out.printf("%d is not an option.\n", gameNumber);
             }
         } while (gameNumber != 0);
-    }
-
-    static int randomize(int multiplyer) {
-        return (int) (Math.random() * multiplyer);
     }
 }

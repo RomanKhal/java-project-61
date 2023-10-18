@@ -1,7 +1,10 @@
 package hexlet.code;
 
 
+import java.util.Scanner;
+
 public abstract class Game {
+    public static Scanner scanner = new Scanner(System.in);
     static String schema = """
                         %s is wrong answer ;(. Correct answer was %s.
                         Let`s try again, %s!
@@ -11,7 +14,11 @@ public abstract class Game {
                     Question: %s
                     Your answer:\s""";
 
-    static void congrats() {
+    static int randomize(int multiplyer) {
+        return (int) (Math.random() * multiplyer);
+    }
+
+    static void congratsYouWin() {
         System.out.printf("Congratulations, %s!\n", Cli.getUserName());
         Engine.winsCount = 0;
     }

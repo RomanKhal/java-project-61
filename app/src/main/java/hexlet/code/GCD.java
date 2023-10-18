@@ -1,6 +1,5 @@
 package hexlet.code;
 
-import java.util.Scanner;
 
 public class GCD extends Game {
     static int currentNumber1;
@@ -8,12 +7,10 @@ public class GCD extends Game {
     static int rightAnswer;
 
     public static void gcdGame() {
-        Cli.setUserName();
-        Scanner scanner = new Scanner(System.in);
         System.out.println("Find the greatest common divisor of given numbers.");
         while (Engine.winsCount < 3) {
-            currentNumber1 = Engine.randomize(100);
-            currentNumber2 = Engine.randomize(100);
+            currentNumber1 = randomize(100);
+            currentNumber2 = randomize(100);
             rightAnswer = gdc(currentNumber1, currentNumber2);
             System.out.printf(questionAndAnswer, currentNumber1 + " " + currentNumber2);
             int answer = scanner.nextInt();
@@ -24,7 +21,7 @@ public class GCD extends Game {
                 return;
             }
         }
-        congrats();
+        congratsYouWin();
     }
 
     private static int gdc(int first, int second) {

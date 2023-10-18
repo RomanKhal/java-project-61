@@ -5,3 +5,4 @@ https://asciinema.org/a/Nbl8pJAlPmFzWJBqE3GRREVWW - Even
 https://asciinema.org/a/BoBVFuBKCEXFE53wYM1rpSkSO - Calc
 https://asciinema.org/a/O9kJlk29dgXLeT570aHOfX76a - GCD
 https://asciinema.org/a/ukFzU296K5jK6tMAblOHfPWfb - Progression
+https://asciinema.org/a/y1du6nYbI5h0BXv4RZhWHO6tp - Prime
