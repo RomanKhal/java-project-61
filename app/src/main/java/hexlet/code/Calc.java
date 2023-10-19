@@ -5,7 +5,7 @@ import static hexlet.code.Engine.*;
 
 public class Calc {
 
-    static String[] operators = {" + ", " - ", " * "};
+    private static final String[] operators = {" + ", " - ", " * "};
     private static int currentNumber1;
     private static int currentNumber2;
     private static int rightAnswer;
@@ -42,7 +42,7 @@ public class Calc {
             case "0" -> currentNumber1 + currentNumber2;
             case "1" -> currentNumber1 - currentNumber2;
             case "2" -> currentNumber1 * currentNumber2;
-            default -> 0;
+            default -> throw new IllegalStateException("Unexpected value: " + String.valueOf(num));
         };
     }
 }
