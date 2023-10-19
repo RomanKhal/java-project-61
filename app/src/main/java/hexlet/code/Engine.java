@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 public class Engine {
     public static int winsCount = 0;
+    public static final int WINS = 3;
     public static String gameNumber;
 
     public static void chooseMenu() {
@@ -56,17 +57,21 @@ public class Engine {
     }
 
     static Scanner scanner = new Scanner(System.in);
-    static String schema = """
+    private static final String schema = """
             %s is wrong answer ;(. Correct answer was %s.
             Let's try again, %s!
                 """;
 
-    public static String questionAndAnswer = """
+    private final static String questionAndAnswer = """
             Question: %s
             Your answer:\s""";
 
-    static int randomize(int multiplyer) {
-        return (int) (Math.random() * multiplyer);
+    public static void questioning(String arg) {
+        System.out.printf(questionAndAnswer, arg);
+    }
+
+    public static void questioning(int arg) {
+        System.out.printf(questionAndAnswer, arg);
     }
 
     static void congratsYouWin() {
@@ -87,5 +92,9 @@ public class Engine {
     static void wrongAnswer(int answer, int rightAnswer) {
         System.out.printf(schema, answer, rightAnswer, Cli.getUserName());
         Engine.winsCount = 0;
+    }
+
+    static int randomize(int multiplyer) {
+        return (int) (Math.random() * multiplyer);
     }
 }

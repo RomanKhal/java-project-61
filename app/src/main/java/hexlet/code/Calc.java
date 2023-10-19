@@ -1,39 +1,36 @@
 package hexlet.code;
 
 
-import static hexlet.code.Engine.*;
-
 public class Calc {
 
-    private static final String[] operators = {" + ", " - ", " * "};
+    private static final String[] OPERATORS = {" + ", " - ", " * "};
     private static int currentNumber1;
     private static int currentNumber2;
     private static int rightAnswer;
 
     static void calcGame() {
         System.out.println("What is the result of the expression?");
-        while (Engine.winsCount < 3) {
-            System.out.printf(questionAndAnswer, generateQuestion());
-            int answer = scanner.nextInt();
+        while (Engine.winsCount < Engine.WINS) {
+            Engine.questioning(generateQuestion());
+            int answer = Engine.scanner.nextInt();
             if (answer == rightAnswer) {
-                correctAnswer();
+                Engine.correctAnswer();
             } else {
-                wrongAnswer(answer, rightAnswer);
+                Engine.wrongAnswer(answer, rightAnswer);
                 return;
             }
         }
-        congratsYouWin();
+        Engine.congratsYouWin();
     }
 
     static String generateQuestion() {
         final int positionForCurrNum = 99;
-        final int positionForOperatorChoose = 3;
         StringBuilder expr = new StringBuilder();
-        currentNumber1 = randomize(positionForCurrNum);
-        currentNumber2 = randomize(positionForCurrNum);
-        int operatorChoose = randomize(positionForOperatorChoose);
+        currentNumber1 = Engine.randomize(positionForCurrNum);
+        currentNumber2 = Engine.randomize(positionForCurrNum);
+        int operatorChoose = Engine.randomize(OPERATORS.length);
         rightAnswer = calcRightAnswer(operatorChoose);
-        expr.append(currentNumber1).append(operators[operatorChoose]).append(currentNumber2);
+        expr.append(currentNumber1).append(OPERATORS[operatorChoose]).append(currentNumber2);
         return expr.toString();
     }
 

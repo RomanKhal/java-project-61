@@ -1,29 +1,26 @@
 package hexlet.code;
 
-import static hexlet.code.Engine.*;
 
 
 public class GCD {
-    static int currentNumber1;
-    static int currentNumber2;
-    static int rightAnswer;
 
     public static void gcdGame() {
         System.out.println("Find the greatest common divisor of given numbers.");
-        while (Engine.winsCount < 3) {
-            currentNumber1 = randomize(100);
-            currentNumber2 = randomize(100);
-            rightAnswer = gdc(currentNumber1, currentNumber2);
-            System.out.printf(questionAndAnswer, currentNumber1 + " " + currentNumber2);
-            int answer = scanner.nextInt();
+        while (Engine.winsCount < Engine.WINS) {
+            final int NUM_POSITION = 100;
+            int currentNumber1 = Engine.randomize(NUM_POSITION);
+            int currentNumber2 = Engine.randomize(NUM_POSITION);
+            int rightAnswer = gdc(currentNumber1, currentNumber2);
+            Engine.questioning(currentNumber1 + " " + currentNumber2);
+            int answer = Engine.scanner.nextInt();
             if (answer == rightAnswer) {
-                correctAnswer();
+                Engine.correctAnswer();
             } else {
-                wrongAnswer(answer, rightAnswer);
+                Engine.wrongAnswer(answer, rightAnswer);
                 return;
             }
         }
-        congratsYouWin();
+        Engine.congratsYouWin();
     }
 
     private static int gdc(int first, int second) {

@@ -1,31 +1,30 @@
 package hexlet.code;
 
-import static hexlet.code.Engine.*;
 
 public class Progression {
 
     public static void progressionGame() {
         System.out.println("What number is missing in the progression?");
-        while (Engine.winsCount < 3) {
+        while (Engine.winsCount < Engine.WINS) {
             int[] progression = generateProgression();
-            int index = randomize(progression.length);
+            int index = Engine.randomize(progression.length);
             int rightAnswer = progression[index];
-            System.out.printf(questionAndAnswer, strArrForPrint(progression, index));
-            int answer = scanner.nextInt();
+            Engine.questioning(strArrForPrint(progression, index));
+            int answer = Engine.scanner.nextInt();
             if (answer == rightAnswer) {
-                correctAnswer();
+                Engine.correctAnswer();
             } else {
-                wrongAnswer(answer, rightAnswer);
+                Engine.wrongAnswer(answer, rightAnswer);
                 return;
             }
         }
-        congratsYouWin();
+        Engine.congratsYouWin();
     }
 
     static int[] generateProgression() {
         int[] arr = new int[10];
-        int step = randomize(9) + 1;
-        arr[0] = randomize(9) + 1;
+        int step = Engine.randomize(arr.length - 1) + 1;
+        arr[0] = Engine.randomize(arr.length - 1) + 1;
         for (int i = 1; i < arr.length; i++) {
             arr[i] = arr[i - 1] + step;
         }
