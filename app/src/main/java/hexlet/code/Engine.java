@@ -3,9 +3,9 @@ package hexlet.code;
 import java.util.Scanner;
 
 public class Engine {
-    public static int winsCount = 0;
+    private static int winsCount = 0;
     public static final int WINS = 3;
-    public static String gameNumber;
+    private static String gameNumber;
 
     public static void chooseMenu() {
 //        do {
@@ -56,22 +56,22 @@ public class Engine {
 //        } while (gameNumber != 0);
     }
 
-    static Scanner scanner = new Scanner(System.in);
-    private static final String schema = """
+    private static Scanner scanner = new Scanner(System.in);
+    private static final String SCHEMA = """
             %s is wrong answer ;(. Correct answer was %s.
             Let's try again, %s!
                 """;
 
-    private final static String questionAndAnswer = """
+    private static final String QUESTION_AND_ANSWER = """
             Question: %s
             Your answer:\s""";
 
     public static void questioning(String arg) {
-        System.out.printf(questionAndAnswer, arg);
+        System.out.printf(QUESTION_AND_ANSWER, arg);
     }
 
     public static void questioning(int arg) {
-        System.out.printf(questionAndAnswer, arg);
+        System.out.printf(QUESTION_AND_ANSWER, arg);
     }
 
     static void congratsYouWin() {
@@ -85,16 +85,20 @@ public class Engine {
     }
 
     static void wrongAnswer(String answer, String rightAnswer) {
-        System.out.printf(schema, answer, rightAnswer, Cli.getUserName());
+        System.out.printf(SCHEMA, answer, rightAnswer, Cli.getUserName());
         Engine.winsCount = 0;
     }
 
     static void wrongAnswer(int answer, int rightAnswer) {
-        System.out.printf(schema, answer, rightAnswer, Cli.getUserName());
+        System.out.printf(SCHEMA, answer, rightAnswer, Cli.getUserName());
         Engine.winsCount = 0;
     }
 
     static int randomize(int multiplyer) {
         return (int) (Math.random() * multiplyer);
+    }
+
+    public static int getWinsCount() {
+        return winsCount;
     }
 }

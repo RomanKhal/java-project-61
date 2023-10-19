@@ -1,14 +1,17 @@
 package hexlet.code;
 
 
+import java.util.Scanner;
+
 public class Prime {
     static void primeGame() {
         System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
-        while (Engine.winsCount < Engine.WINS) {
-            int currentNumber = Engine.randomize(100);
+        while (Engine.getWinsCount() < Engine.WINS) {
+            final int numPosition = 100;
+            int currentNumber = Engine.randomize(numPosition);
             String rightAnswer = gettingRightAnswer(currentNumber);
             Engine.questioning(currentNumber);
-            String answer = Engine.scanner.next();
+            String answer = new Scanner(System.in).next();
             if (answer.equals(rightAnswer)) {
                 Engine.correctAnswer();
             } else {

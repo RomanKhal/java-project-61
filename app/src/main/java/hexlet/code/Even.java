@@ -1,24 +1,26 @@
 package hexlet.code;
 
 
-import static hexlet.code.Engine.*;
+import java.util.Scanner;
+
 
 public class Even {
 
     static void evenGame() {
         System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
-        while (Engine.winsCount < WINS) {
-            int currentNumber = randomize(1000);
+        while (Engine.getWinsCount() < Engine.WINS) {
+            final int numPosition = 1000;
+            int currentNumber = Engine.randomize(numPosition);
             String rightAnswer = currentNumber % 2 == 0 ? "yes" : "no";
             Engine.questioning(currentNumber);
-            String answer = scanner.next();
+            String answer = new Scanner(System.in).next();
             if (answer.equals(rightAnswer)) {
-                correctAnswer();
+                Engine.correctAnswer();
             } else {
-                wrongAnswer(answer, rightAnswer);
+                Engine.wrongAnswer(answer, rightAnswer);
                 return;
             }
         }
-        congratsYouWin();
+        Engine.congratsYouWin();
     }
 }

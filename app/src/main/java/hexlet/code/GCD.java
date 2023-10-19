@@ -1,18 +1,19 @@
 package hexlet.code;
 
 
+import java.util.Scanner;
 
 public class GCD {
 
     public static void gcdGame() {
         System.out.println("Find the greatest common divisor of given numbers.");
-        while (Engine.winsCount < Engine.WINS) {
-            final int NUM_POSITION = 100;
-            int currentNumber1 = Engine.randomize(NUM_POSITION);
-            int currentNumber2 = Engine.randomize(NUM_POSITION);
+        while (Engine.getWinsCount() < Engine.WINS) {
+            final int numPosition = 100;
+            int currentNumber1 = Engine.randomize(numPosition);
+            int currentNumber2 = Engine.randomize(numPosition);
             int rightAnswer = gdc(currentNumber1, currentNumber2);
             Engine.questioning(currentNumber1 + " " + currentNumber2);
-            int answer = Engine.scanner.nextInt();
+            int answer = new Scanner(System.in).nextInt();
             if (answer == rightAnswer) {
                 Engine.correctAnswer();
             } else {

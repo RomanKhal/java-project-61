@@ -1,6 +1,8 @@
 package hexlet.code;
 
 
+import java.util.Scanner;
+
 public class Calc {
 
     private static final String[] OPERATORS = {" + ", " - ", " * "};
@@ -10,9 +12,9 @@ public class Calc {
 
     static void calcGame() {
         System.out.println("What is the result of the expression?");
-        while (Engine.winsCount < Engine.WINS) {
+        while (Engine.getWinsCount() < Engine.WINS) {
             Engine.questioning(generateQuestion());
-            int answer = Engine.scanner.nextInt();
+            int answer = new Scanner(System.in).nextInt();
             if (answer == rightAnswer) {
                 Engine.correctAnswer();
             } else {
