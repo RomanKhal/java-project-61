@@ -56,7 +56,7 @@ public class Engine {
     static Scanner scanner = new Scanner(System.in);
     static String schema = """
                         %s is wrong answer ;(. Correct answer was %s.
-                        Let`s try again, %s!
+                        Let's try again, %s!
                             """;
 
     public static String questionAndAnswer = """
