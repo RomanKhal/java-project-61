@@ -1,7 +1,9 @@
 package hexlet.code;
 
+import static hexlet.code.Engine.*;
 
-public class GCD extends Game {
+
+public class GCD {
     static int currentNumber1;
     static int currentNumber2;
     static int rightAnswer;

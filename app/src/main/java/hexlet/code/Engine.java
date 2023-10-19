@@ -6,8 +6,7 @@ public class Engine {
     public static int winsCount = 0;
     public static int gameNumber;
     public static void chooseMenu() {
-        Scanner scanner = new Scanner(System.in);
-        do {
+//        do {
             System.out.print("""
                     Please enter the game number and press Enter.
                     1 - Greet
@@ -52,6 +51,39 @@ public class Engine {
                 default:
                     System.out.printf("%d is not an option.\n", gameNumber);
             }
-        } while (gameNumber != 0);
+//        } while (gameNumber != 0);
+    }
+    static Scanner scanner = new Scanner(System.in);
+    static String schema = """
+                        %s is wrong answer ;(. Correct answer was %s.
+                        Let`s try again, %s!
+                            """;
+
+    public static String questionAndAnswer = """
+                    Question: %s
+                    Your answer:\s""";
+
+    static int randomize(int multiplyer) {
+        return (int) (Math.random() * multiplyer);
+    }
+
+    static void congratsYouWin() {
+        System.out.printf("Congratulations, %s!\n", Cli.getUserName());
+        Engine.winsCount = 0;
+    }
+
+    static void correctAnswer() {
+        System.out.println("Correct!");
+        Engine.winsCount++;
+    }
+
+    static void wrongAnswer(String answer, String rightAnswer) {
+        System.out.printf(schema, answer, rightAnswer, Cli.getUserName());
+        Engine.winsCount = 0;
+    }
+
+    static void wrongAnswer(int answer, int rightAnswer) {
+        System.out.printf(schema, answer, rightAnswer, Cli.getUserName());
+        Engine.winsCount = 0;
     }
 }

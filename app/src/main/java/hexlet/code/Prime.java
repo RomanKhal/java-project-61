@@ -1,6 +1,8 @@
 package hexlet.code;
 
-public class Prime extends Game {
+import static hexlet.code.Engine.*;
+
+public class Prime {
     static int currentNumber;
     static void primeGame() {
         System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");

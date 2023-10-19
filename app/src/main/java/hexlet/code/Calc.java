@@ -1,7 +1,9 @@
 package hexlet.code;
 
 
-public class Calc extends Game {
+import static hexlet.code.Engine.*;
+
+public class Calc {
 
     static String[] operators = {" + ", " - ", " * "};
     static int currentNumber1;
