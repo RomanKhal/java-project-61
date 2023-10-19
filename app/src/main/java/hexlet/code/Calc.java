@@ -6,9 +6,9 @@ import static hexlet.code.Engine.*;
 public class Calc {
 
     static String[] operators = {" + ", " - ", " * "};
-    static int currentNumber1;
-    static int currentNumber2;
-    static int rightAnswer;
+    private static int currentNumber1;
+    private static int currentNumber2;
+    private static int rightAnswer;
 
     static void calcGame() {
         System.out.println("What is the result of the expression?");
@@ -26,10 +26,12 @@ public class Calc {
     }
 
     static String generateQuestion() {
+        int positionForCurrNum = 99;
+        int positionForOperatorChoose = 3;
         StringBuilder expr = new StringBuilder();
-        currentNumber1 = randomize(99);
-        currentNumber2 = randomize(99);
-        int operatorChoose = randomize(3);
+        currentNumber1 = randomize(positionForCurrNum);
+        currentNumber2 = randomize(positionForCurrNum);
+        int operatorChoose = randomize(positionForOperatorChoose);
         rightAnswer = calcRightAnswer(operatorChoose);
         expr.append(currentNumber1).append(operators[operatorChoose]).append(currentNumber2);
         return expr.toString();

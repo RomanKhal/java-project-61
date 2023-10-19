@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Engine {
     public static int winsCount = 0;
-    public static int gameNumber;
+    public static String gameNumber;
     public static void chooseMenu() {
 //        do {
             System.out.print("""
@@ -18,8 +18,8 @@ public class Engine {
                     0 - Exit
                     Your choice:\s""");
             try {
-                gameNumber = scanner.nextInt();
-                if (gameNumber != 0 && gameNumber != 1) {
+                gameNumber = scanner.next();
+                if (gameNumber.equals("0") || gameNumber.equals("1")) {
                     Cli.setUserName();
                 }
             } catch (Exception e) {
@@ -27,29 +27,29 @@ public class Engine {
                 chooseMenu();
             }
             switch (gameNumber) {
-                case 1:
+                case "1":
                     Cli.setUserName();
                     break;
-                case 2:
+                case "2":
                     Even.evenGame();
                     break;
-                case 3:
+                case "3":
                     Calc.calcGame();
                     break;
-                case 4:
+                case "4":
                     GCD.gcdGame();
                     break;
-                case 5:
+                case "5":
                     Progression.progressionGame();
                     break;
-                case 6:
+                case "6":
                     Prime.primeGame();
                     break;
-                case 0:
+                case "0":
                     System.out.printf("Bye %s!\n", Cli.getUserName());
                     break;
                 default:
-                    System.out.printf("%d is not an option.\n", gameNumber);
+                    System.out.printf("%s is not an option.\n", gameNumber);
             }
 //        } while (gameNumber != 0);
     }
