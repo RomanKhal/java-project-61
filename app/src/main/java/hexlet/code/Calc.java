@@ -26,8 +26,8 @@ public class Calc {
     }
 
     static String generateQuestion() {
-        int positionForCurrNum = 99;
-        int positionForOperatorChoose = 3;
+        final int positionForCurrNum = 99;
+        final int positionForOperatorChoose = 3;
         StringBuilder expr = new StringBuilder();
         currentNumber1 = randomize(positionForCurrNum);
         currentNumber2 = randomize(positionForCurrNum);
@@ -38,10 +38,10 @@ public class Calc {
     }
 
     static int calcRightAnswer(int num) {
-        return switch (num) {
-            case 0 -> currentNumber1 + currentNumber2;
-            case 1 -> currentNumber1 - currentNumber2;
-            case 2 -> currentNumber1 * currentNumber2;
+        return switch (String.valueOf(num)) {
+            case "0" -> currentNumber1 + currentNumber2;
+            case "1" -> currentNumber1 - currentNumber2;
+            case "2" -> currentNumber1 * currentNumber2;
             default -> 0;
         };
     }
