@@ -6,7 +6,7 @@ public class Cli {
     public static void setUserName() {
         if (userName.equals("Stranger")) {
             System.out.println("\nWelcome to the Brain Games!");
-            System.out.print("May I Have Your Name? ");
+            System.out.print("May I have your name? ");
             Scanner scanner = new Scanner(System.in);
             userName = scanner.next();
         }
