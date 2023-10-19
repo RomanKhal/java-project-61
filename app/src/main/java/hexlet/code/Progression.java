@@ -24,7 +24,8 @@ public class Progression {
     }
 
     static int[] generateProgression() {
-        int[] arr = new int[10];
+        final int size = 10;
+        int[] arr = new int[size];
         int step = Engine.randomize(arr.length - 1) + 1;
         arr[0] = Engine.randomize(arr.length - 1) + 1;
         for (int i = 1; i < arr.length; i++) {
