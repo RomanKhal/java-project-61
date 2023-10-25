@@ -4,8 +4,7 @@ package hexlet.code;
 import java.util.Scanner;
 
 public class App {
-    private static String gameNumber;
-    private static final Scanner scanner = new Scanner(System.in);
+    private static final Scanner SCANNER = new Scanner(System.in);
 
     public static void main(String[] args) {
         chooseMenu();
@@ -22,15 +21,12 @@ public class App {
                 6 - Prime
                 0 - Exit
                 Your choice:\s""");
-        try {
-            gameNumber = scanner.next();
-            if (!gameNumber.equals("0") && !gameNumber.equals("1")) {
-                Cli.setUserName();
-            }
-        } catch (Exception e) {
-            System.out.println("Choose a number please.");
-            chooseMenu();
+
+        String gameNumber = SCANNER.next();
+        if (!gameNumber.equals("0") && !gameNumber.equals("1")) {
+            Cli.setUserName();
         }
+
         switch (gameNumber) {
             case "1":
                 Cli.setUserName();
@@ -54,7 +50,8 @@ public class App {
                 System.out.printf("Bye %s!\n", Cli.getUserName());
                 break;
             default:
-                System.out.printf("%s is not an option.\n", gameNumber);
+                System.out.printf("\n%s is not an option.\n\n", gameNumber);
+                chooseMenu();
         }
     }
 

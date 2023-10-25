@@ -6,8 +6,6 @@ public class Engine {
     public static final int WINS = 3;
 
 
-
-
     private static final String SCHEMA = """
             %s is wrong answer ;(. Correct answer was %s.
             Let's try again, %s!
@@ -25,9 +23,26 @@ public class Engine {
         System.out.printf(QUESTION_AND_ANSWER, arg);
     }
 
+    public static boolean checkAnswer(String answer, boolean rightAnswer) {
+        if (answer.equals("yes") && rightAnswer
+                || answer.equals("no") && !rightAnswer) {
+            correctAnswer();
+            return true;
+        }
+        wrongAnswer(answer, rightAnswer);
+        return false;
+    }
+
+    public static boolean checkAnswer(int answer, int rightAnswer) {
+        if (answer == rightAnswer) {
+            correctAnswer();
+            return true;
+        }
+        wrongAnswer(answer, rightAnswer);
+        return false;    }
+
     static void congratsYouWin() {
         System.out.printf("Congratulations, %s!\n", Cli.getUserName());
-        Engine.winsCount = 0;
     }
 
     static void correctAnswer() {
@@ -35,8 +50,9 @@ public class Engine {
         Engine.winsCount++;
     }
 
-    static void wrongAnswer(String answer, String rightAnswer) {
-        System.out.printf(SCHEMA, answer, rightAnswer, Cli.getUserName());
+    static void wrongAnswer(String answer, boolean rightAnswer) {
+        String rAnswer = rightAnswer ? "yes" : "no";
+        System.out.printf(SCHEMA, answer, rAnswer, Cli.getUserName());
         Engine.winsCount = 0;
     }
 
@@ -49,7 +65,7 @@ public class Engine {
         return (int) (Math.random() * multiplyer);
     }
 
-    public static int getWinsCount() {
-        return winsCount;
+    public static boolean haveAWinner() {
+        return WINS == winsCount;
     }
 }

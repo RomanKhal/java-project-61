@@ -7,20 +7,18 @@ public class Progression {
 
     public static void progressionGame() {
         System.out.println("What number is missing in the progression?");
-        while (Engine.getWinsCount() < Engine.WINS) {
+        int rightAnswer;
+        int answer;
+        do {
             int[] progression = generateProgression();
             int index = Engine.randomize(progression.length);
-            int rightAnswer = progression[index];
+            rightAnswer = progression[index];
             Engine.questioning(strArrForPrint(progression, index));
-            int answer = new Scanner(System.in).nextInt();
-            if (answer == rightAnswer) {
-                Engine.correctAnswer();
-            } else {
-                Engine.wrongAnswer(answer, rightAnswer);
-                return;
-            }
+            answer = new Scanner(System.in).nextInt();
+        } while (Engine.checkAnswer(answer, rightAnswer) && !Engine.haveAWinner());
+        if (Engine.haveAWinner()) {
+            Engine.congratsYouWin();
         }
-        Engine.congratsYouWin();
     }
 
     static int[] generateProgression() {

@@ -12,17 +12,14 @@ public class Calc {
 
     static void calcGame() {
         System.out.println("What is the result of the expression?");
-        while (Engine.getWinsCount() < Engine.WINS) {
+        int answer;
+        do {
             Engine.questioning(generateQuestion());
-            int answer = new Scanner(System.in).nextInt();
-            if (answer == rightAnswer) {
-                Engine.correctAnswer();
-            } else {
-                Engine.wrongAnswer(answer, rightAnswer);
-                return;
-            }
+            answer = new Scanner(System.in).nextInt();
+        } while (Engine.checkAnswer(answer, rightAnswer) && !Engine.haveAWinner());
+        if (Engine.haveAWinner()) {
+            Engine.congratsYouWin();
         }
-        Engine.congratsYouWin();
     }
 
     static String generateQuestion() {
@@ -41,7 +38,7 @@ public class Calc {
             case "0" -> currentNumber1 + currentNumber2;
             case "1" -> currentNumber1 - currentNumber2;
             case "2" -> currentNumber1 * currentNumber2;
-            default -> throw new IllegalStateException("Unexpected value: " + String.valueOf(num));
+            default -> throw new IllegalStateException("Unexpected value: " + num);
         };
     }
 }

@@ -5,23 +5,22 @@ import java.util.Scanner;
 
 public class GCD {
 
+
     public static void gcdGame() {
         System.out.println("Find the greatest common divisor of given numbers.");
-        while (Engine.getWinsCount() < Engine.WINS) {
+        int answer;
+        int rightAnswer;
+        do {
             final int numPosition = 100;
             int currentNumber1 = Engine.randomize(numPosition);
             int currentNumber2 = Engine.randomize(numPosition);
-            int rightAnswer = gdc(currentNumber1, currentNumber2);
+            rightAnswer = gdc(currentNumber1, currentNumber2);
             Engine.questioning(currentNumber1 + " " + currentNumber2);
-            int answer = new Scanner(System.in).nextInt();
-            if (answer == rightAnswer) {
-                Engine.correctAnswer();
-            } else {
-                Engine.wrongAnswer(answer, rightAnswer);
-                return;
-            }
+            answer = new Scanner(System.in).nextInt();
+        } while (Engine.checkAnswer(answer, rightAnswer) && !Engine.haveAWinner());
+        if (Engine.haveAWinner()) {
+            Engine.congratsYouWin();
         }
-        Engine.congratsYouWin();
     }
 
     private static int gdc(int first, int second) {
