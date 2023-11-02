@@ -6,15 +6,14 @@ public class Prime {
     private static final int NUMPOSITION = 100;
 
     public static void primeGame() {
-        System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
-        int[] questionData = new int[Engine.WINS];
-        boolean[] rightAnswerData = new boolean[Engine.WINS];
-        for (int i = 0; i < questionData.length; i++) {
+        String startingPhrase = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
+        String[][] questionsAndAnswers = new String[Engine.WINS][2];
+        for (int i = 0; i < questionsAndAnswers.length; i++) {
             int currentNumber = Engine.randomize(NUMPOSITION);
-            questionData[i] = currentNumber;
-            rightAnswerData[i] = isPrime(currentNumber);
+            questionsAndAnswers[i][0] = String.valueOf(currentNumber);
+            questionsAndAnswers[i][1] = isPrime(currentNumber) ? "yes" : "no";
         }
-        Engine.runGame(questionData, rightAnswerData);
+        Engine.runGame(questionsAndAnswers, startingPhrase);
     }
 
     private static boolean isPrime(int number) {

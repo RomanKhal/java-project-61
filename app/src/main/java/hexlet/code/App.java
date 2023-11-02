@@ -29,13 +29,10 @@ public class App {
                 Your choice:\s""");
 
         String gameNumber = SCANNER.next();
-        if (!gameNumber.equals("0") && !gameNumber.equals("1")) {
-            Cli.setUserName();
-        }
 
         switch (gameNumber) {
             case "1":
-                Cli.setUserName();
+                Cli.greeting();
                 break;
             case "2":
                 Even.evenGame();
@@ -53,11 +50,9 @@ public class App {
                 Prime.primeGame();
                 break;
             case "0":
-                System.out.printf("Bye %s!\n", Cli.getUserName());
                 break;
             default:
-                System.out.printf("\n%s is not an option.\n\n", gameNumber);
-                chooseMenu();
+                System.out.printf("\n%s is not an option.\n", gameNumber);
         }
     }
 

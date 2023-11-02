@@ -2,28 +2,21 @@ package hexlet.code.games;
 
 import hexlet.code.Engine;
 public class Calc {
-
     private static final String[] OPERATORS = {" + ", " - ", " * "};
-    private static int rightAnswer;
+    private static final int NUMPOSITION = 99;
+
     public static void calcGame() {
-        System.out.println("What is the result of the expression?");
-        String[] questionData = new String[Engine.WINS];
-        int[] rightAnswerData = new int[Engine.WINS];
-        for (int i = 0; i < questionData.length; i++) {
-            questionData[i] = generateQuestion();
-            rightAnswerData[i] = rightAnswer;
+        String startingPhrase = "What is the result of the expression?";
+        String[][] questionsAndAnswers = new String[Engine.WINS][2];
+        for (int i = 0; i < questionsAndAnswers.length; i++) {
+            int currentNumber1 = Engine.randomize(NUMPOSITION);
+            int currentNumber2 = Engine.randomize(NUMPOSITION);
+            int operator = Engine.randomize(OPERATORS.length);
+            int rightAnswer = calcRightAnswer(operator, currentNumber1, currentNumber2);
+            questionsAndAnswers[i][0] = currentNumber1 + OPERATORS[operator] + currentNumber2;
+            questionsAndAnswers[i][1] = String.valueOf(rightAnswer);
         }
-        Engine.runGame(questionData, rightAnswerData);
-    }
-    private static String generateQuestion() {
-        final int positionForCurrNum = 99;
-        StringBuilder expr = new StringBuilder();
-        int currentNumber1 = Engine.randomize(positionForCurrNum);
-        int currentNumber2 = Engine.randomize(positionForCurrNum);
-        int operatorChoose = Engine.randomize(OPERATORS.length);
-        rightAnswer = calcRightAnswer(operatorChoose, currentNumber1, currentNumber2);
-        expr.append(currentNumber1).append(OPERATORS[operatorChoose]).append(currentNumber2);
-        return expr.toString();
+        Engine.runGame(questionsAndAnswers, startingPhrase);
     }
 
     private static int calcRightAnswer(int operator, int currentNumber1, int currentNumber2) {
